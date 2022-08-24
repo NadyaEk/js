@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+  <script>
+    "use strict";
+
+    /**
+     * функция выбирает правильное склонение слова
+     * @param {number} count количество фрутов/овощей
+     * @param {string} one первое слово
+     * @param {string} two второе слово
+     * @param {string} five третье слово
+     * @returns {string} возвращается введённое число с правильной формой слова
+     */
+    function declinationOfNumber(count, one, two, five) {
+      const cnt10 = count % 10;
+      const cnt100 = count % 100;
+      if (cnt100 >= 10 && cnt100 < 21) return five;
+      if (cnt10 === 1) return one;
+      if (cnt10 > 1 && cnt10 < 5) return two;
+      return five;
+    }
+    /**
+     * Функция запрашивает любое целое положительное число 
+     * @returns {number}
+     */
+    function getNumber() {
+      return (+prompt("Введите целое положительное число"));
+    }
+    // запрашиваем количество яблок
+    let number = getNumber();
+    let word = declinationOfNumber(number, "яблоко", "яблока", "яблок");
+    console.log(`У меня есть ${number} ${word}.`);
+    // запрашиваем количество мячей
+    number = getNumber();
+    word = declinationOfNumber(number, "мяч", "мяча", "мячей");
+    console.log(`У меня есть ${number} ${word}.`);
+    // запрашиваем количество стульев
+    number = getNumber()
+    word = declinationOfNumber(number, "стул", "стула", "стульев");
+    console.log(`У меня есть ${number} ${word}.`);
+  </script>
+</body>
+
+</html>
