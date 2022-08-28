@@ -35,7 +35,6 @@
 
     // я посмотрела ваш вариант, но оставила свой, чтобы узнать, чем он плох :)
     const number = +prompt("Введите целое число в диапазоне [0,999]");
-    let result = {};
 
     /**
      * Функция получает число от [0,999] и разбивает его на разряды
@@ -43,18 +42,25 @@
      * @param {object} result пустой объект дл записи результата
      * @returns {object} result объект с количеством единиц, десятков и сотен 
      */
-    function getDigitsOfNumber(number, result) {
+    function getDigitsOfNumber(number) {
+      //let result = {};
       if (number >= 0 && number <= 999 && Number.isInteger(number)) {
-        result.units = number % 10;
-        result.dozens = Math.floor(number / 10) % 10;
-        result.hundreds = Math.floor(number / 100) % 10;
+        return {
+          units: number % 10,
+          dozens: Math.floor(number / 10) % 10,
+          hundreds: Math.floor(number / 100),
+        }
+        //result.units = number % 10;
+        //result.dozens = Math.floor(number / 10) % 10;
+        //result.hundreds = Math.floor(number / 100) % 10;
       } else {
         console.error('Вы должны ввести целое число в диапазоне [0,999]!');
-        return result;
+        return {};
       }
+      //return result;
     }
-    getDigitsOfNumber(number, result);
-    console.log(result);
+
+    console.log(getDigitsOfNumber(number));
   </script>
 </body>
 

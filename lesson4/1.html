@@ -26,9 +26,10 @@
       this.name = name;
       this.price = price;
     }
-    ProductES5.prototype.make25Discount = function (price) {
+
+    ProductES5.prototype.make25Discount = function () {
       this.price *= .75;
-    }
+    };
 
     const product1 = new ProductES5("agua", 200);
     product1.make25Discount();

@@ -71,7 +71,7 @@
       this.date = new Date();
     }
     // инициализируем экземпляр объекта PostES5
-    let postES5 = new PostES5('Alex', 'This is my first post');
+    const postES5 = new PostES5('Alex', 'This is my first post');
     // меняем текст поста с помощью метода edit
     postES5.edit('Всем привет!');
     console.log(postES5);
@@ -83,10 +83,10 @@
      * @param {string} text текст поста
      * @param {boolean:false} highlighted подсветка поста
      */
-    function AttachedPostES5(name, text, date, highlighted = false) {
+    function AttachedPostES5(name, text, date) {
       PostES5.call(this, name, text);
-      this.highlighted = highlighted;
-    };
+      this.highlighted = false;
+    }
     // наследуем прототип от PostES5
     AttachedPostES5.prototype = Object.create(PostES5.prototype);
     // возвращаем в прототип конструктор 
@@ -97,7 +97,7 @@
       this.date = new Date(); // забыла поставить!
     }
     // инициализируем экземпляр объекта AttachedPostES5
-    let attachedPostES5 = new AttachedPostES5("Simon", "hello");
+    const attachedPostES5 = new AttachedPostES5("Simon", "hello");
     // подсвечиваем пост
     attachedPostES5.makeTextHighlighted();
     // меняем текст поста
@@ -122,22 +122,20 @@
         this.date = new Date();
       }
     }
-    let postES6 = new PostES6('Piter', 'Buenos dias, amigos!');
+    const postES6 = new PostES6('Piter', 'Buenos dias, amigos!');
     console.log(postES6);
     postES6.edit('Всем привет!');
     console.log(postES6);
 
     class AttachedPostES6 extends PostES6 {
-      constructor(name, text, highlighted = false) {
-        super(name, text);
-        this.highlighted = highlighted;
-      }
+      highlighted = false;
+
       makeTextHighlighted() {
         this.highlighted = true;
         this.date = new Date(); // забыла поставить!
       }
     }
-    let attachedPostES6 = new AttachedPostES6('Alla', 'What a wondeful day!');
+    const attachedPostES6 = new AttachedPostES6('Alla', 'What a wondeful day!');
     console.log(attachedPostES6);
     attachedPostES6.edit('I\'m cool!');
     attachedPostES6.makeTextHighlighted();
