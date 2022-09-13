@@ -1,0 +1,25 @@
+$colorSite: #F16D7F
+$colorText: #222222
+$colorBorder: #EAEAEA
+//$colorProduct: (#{$colorSite} + #F5F7) -- сложение цветов не работает в sass
+$colorProduct: #F26376
+$widthSite: 1140px
+$gapGrid: 30px
+$width3: calc(($widthSite - 2*$gapGrid)/3)
+
+@mixin flex
+    display: flex
+    align-content: center
+    justify-content: space-between
+    align-items: center
+@mixin flex__colum_center
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+@mixin font($weight , $size , $lh , $color)
+    font-weight: $weight
+    font-size: $size
+    line-height: $lh
+    color: $color
